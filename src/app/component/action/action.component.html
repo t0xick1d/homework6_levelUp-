@@ -1,1 +1,13 @@
-<p>action works!</p>
+<button mat-button [matMenuTriggerFor]="menu">  
+ <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="onClickEdit()">
+    <mat-icon>edit</mat-icon>
+   Редагувати
+  </button>
+  <button mat-menu-item (click)="onClickDelete()">
+    <mat-icon>delete</mat-icon>
+   Видалити
+  </button>
+</mat-menu>

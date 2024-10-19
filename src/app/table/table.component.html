@@ -1,4 +1,4 @@
-<table mat-table [dataSource]='dataSource' class="mat-elevation-z8">
+<mat-table [dataSource]='dataSource' class="mat-elevation-z8 table">
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
     <mat-cell *matCellDef="let element"> 
@@ -6,35 +6,35 @@
     </mat-cell>
   </ng-container> 
   <ng-container matColumnDef="sku">
-    <th mat-header-cell *matHeaderCellDef> SKU </th>
-    <td mat-cell *matCellDef="let element">
+    <mat-header-cell *matHeaderCellDef> SKU </mat-header-cell>
+    <mat-cell *matCellDef="let element">
      <app-sku [sku]="element.sku"></app-sku>
-    </td>
+    </mat-cell>
   </ng-container>
   <ng-container matColumnDef="price">
-    <th mat-header-cell *matHeaderCellDef> Price </th>
-    <td mat-cell *matCellDef="let element">
+    <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+    <mat-cell *matCellDef="let element">
      <app-price [price]="element.price"></app-price> 
-    </td>
+    </mat-cell>
   </ng-container>
    <ng-container matColumnDef="country">
-    <th mat-header-cell *matHeaderCellDef> Country </th>
-    <td mat-cell *matCellDef="let element"> 
+    <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
+    <mat-cell *matCellDef="let element"> 
      <app-country [country]="element.country"></app-country> 
-    </td>
+    </mat-cell>
   </ng-container>
   <ng-container matColumnDef="tags">
-    <th mat-header-cell *matHeaderCellDef> Tags </th>
-    <td mat-cell *matCellDef="let element">
+    <mat-header-cell *matHeaderCellDef> Tags </mat-header-cell>
+    <mat-cell *matCellDef="let element">
      <app-tags [tags]="element.tags"></app-tags>
-    </td>
+    </mat-cell>
   </ng-container>
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let element"> 
+    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let element"> 
      <app-action [action]="element.action"></app-action> 
-    </td>
+    </mat-cell>
   </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
