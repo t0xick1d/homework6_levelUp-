@@ -1,0 +1,40 @@
+<table mat-table [dataSource]='dataSource' class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> 
+     <app-name [name]="element.name"></app-name> 
+    </mat-cell>
+  </ng-container> 
+  <ng-container matColumnDef="sku">
+    <th mat-header-cell *matHeaderCellDef> SKU </th>
+    <td mat-cell *matCellDef="let element">
+     <app-sku [sku]="element.sku"></app-sku>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let element">
+     <app-price [price]="element.price"></app-price> 
+    </td>
+  </ng-container>
+   <ng-container matColumnDef="country">
+    <th mat-header-cell *matHeaderCellDef> Country </th>
+    <td mat-cell *matCellDef="let element"> 
+     <app-country [country]="element.country"></app-country> 
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="tags">
+    <th mat-header-cell *matHeaderCellDef> Tags </th>
+    <td mat-cell *matCellDef="let element">
+     <app-tags [tags]="element.tags"></app-tags>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element"> 
+     <app-action [action]="element.action"></app-action> 
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
