@@ -1,0 +1,17 @@
+<mat-drawer-container   autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <h2>Головна</h2>
+    <h2>Продукти</h2>
+    <h2>Замовлення</h2>
+    <h2>Клієнти</h2>
+    <h2>Налаштування</h2>
+  </mat-drawer>
+  <mat-toolbar >
+   <button mat-icon-button  class="buttonMenu" aria-label="Example icon-button with menu icon"type="button" mat-button (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span> 
+  <span class="example-spacer"></span>
+</mat-toolbar>
+    <app-table class="table"></app-table>
+</mat-drawer-container>

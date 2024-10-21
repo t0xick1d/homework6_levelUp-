@@ -4,5 +4,9 @@ export interface PeriodicElement {
   price: number;
   country: string;
   tags: string[];
-  actions: any;
+  id: string;
+}
+
+export interface DialogData {
+  id: string;
 }

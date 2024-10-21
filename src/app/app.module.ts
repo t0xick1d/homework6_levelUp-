@@ -8,12 +8,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { TableModule } from './table/table.module';
+import { SideBarModule } from './side-bar/side-bar.modules';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     TableModule,
+    SideBarModule,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
