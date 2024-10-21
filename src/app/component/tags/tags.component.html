@@ -1,5 +1,11 @@
-<ul class="container">
- <li *ngFor="let item of tags" >
-  <div class="item">{{item}}</div>
- </li>
-</ul>
+ <mat-form-field>
+  <mat-chip-list #chipList>
+    <mat-chip *ngFor="let item of tags">
+      {{item}}
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip>
+  </mat-chip-list>
+</mat-form-field>
+

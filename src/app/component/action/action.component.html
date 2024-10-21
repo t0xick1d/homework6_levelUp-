@@ -1,12 +1,12 @@
-<button mat-button [matMenuTriggerFor]="menu">  
+<button mat-button matTooltip="Menu" [matMenuTriggerFor]="menu" >  
  <mat-icon>more_vert</mat-icon>
-</button>
+</button> 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="onClickEdit()">
+  <button mat-menu-item matTooltip="Edit" (click)="onClickEdit()">
     <mat-icon>edit</mat-icon>
    Редагувати
   </button>
-  <button mat-menu-item (click)="onClickDelete()">
+  <button mat-menu-item matTooltip="Delete" (click)="onClickDelete()">
     <mat-icon>delete</mat-icon>
    Видалити
   </button>
