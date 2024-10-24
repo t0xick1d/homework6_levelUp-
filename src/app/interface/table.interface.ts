@@ -1,10 +1,23 @@
-export interface PeriodicElement {
+// export interface PeriodicElement {
+//   name: string;
+//   sku: string;
+//   price: number;
+//   country: string;
+//   tags: string[];
+//   id: string;
+// }
+export interface Product {
+  productID: number;
   name: string;
-  sku: string;
   price: number;
-  country: string;
+  discount: number;
+  sku: string;
+  isActive: boolean;
+  countryCode: string;
+  itemUrl: string;
   tags: string[];
-  id: string;
+  image: string;
+  token: string;
 }
 
 export interface DialogData {

@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActionComponent } from '../action/action.component';
-import { PeriodicElement } from 'src/app/interface/table.interface';
+import { Product } from 'src/app/interface/table.interface';
 
 @Component({
   selector: 'app-modal-edit',
@@ -9,10 +9,10 @@ import { PeriodicElement } from 'src/app/interface/table.interface';
   styleUrls: ['./modal-edit.component.scss'],
 })
 export class ModalEditComponent {
-  public activeProduct!: PeriodicElement;
+  public activeProduct!: Product;
   constructor(
     public dialogRef: MatDialogRef<ActionComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: PeriodicElement
+    @Inject(MAT_DIALOG_DATA) public data: Product
   ) {}
 
   onNoClick(): void {

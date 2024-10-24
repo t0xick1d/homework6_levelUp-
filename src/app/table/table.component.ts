@@ -10,8 +10,8 @@ export class TableComponent {
   public dataSource = ELEMENT_DATA;
   public displayedColumns: string[] = [
     'name',
-    'sku',
     'price',
+    'sku',
     'country',
     'tags',
     'actions',

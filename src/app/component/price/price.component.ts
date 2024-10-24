@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PriceComponent implements OnInit {
   @Input() price!: number;
+  @Input() discount!: string;
   constructor() {}
 
   ngOnInit(): void {}

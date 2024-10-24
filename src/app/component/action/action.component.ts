@@ -9,14 +9,16 @@ import { ELEMENT_DATA as dataProduct } from '../../data';
   styleUrls: ['./action.component.scss'],
 })
 export class ActionComponent implements OnInit {
-  @Input() action!: string;
+  @Input() productID!: number;
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalEditComponent, {
       width: '500px',
-      data: { ...dataProduct.find((item) => item.id === this.action) },
+      data: {
+        ...dataProduct.find((item) => item.productID === this.productID),
+      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
