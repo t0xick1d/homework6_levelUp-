@@ -19,6 +19,7 @@ import { CountryComponent } from '../component/country/country.component';
 import { TagsComponent } from '../component/tags/tags.component';
 import { ActionComponent } from '../component/action/action.component';
 import { ModalEditComponent } from '../component/modal-edit/modal-edit.component';
+import { ModalEditAddComponent } from '../component/modal-edit-add/modal-edit-add.component';
 
 import { MatDividerModule } from '@angular/material/divider';
 
@@ -32,6 +33,7 @@ import { MatDividerModule } from '@angular/material/divider';
     TagsComponent,
     ActionComponent,
     ModalEditComponent,
+    ModalEditAddComponent,
   ],
   imports: [
     CommonModule,

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from './table/table.module';
 import { SideBarModule } from './side-bar/side-bar.modules';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [

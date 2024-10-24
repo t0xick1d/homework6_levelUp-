@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalEditComponent } from '../modal-edit/modal-edit.component';
-import { ELEMENT_DATA as dataProduct } from '../../data';
+import { TableService } from 'src/app/table/table.service';
+import { Product } from 'src/app/interface/table.interface';
 
 @Component({
   selector: 'app-action',
@@ -9,23 +10,19 @@ import { ELEMENT_DATA as dataProduct } from '../../data';
   styleUrls: ['./action.component.scss'],
 })
 export class ActionComponent implements OnInit {
-  @Input() productID!: number;
-  constructor(public dialog: MatDialog) {}
-
+  @Input() item!: Product;
+  constructor(public dialog: MatDialog, private tableService: TableService) {}
   ngOnInit(): void {}
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalEditComponent, {
       width: '500px',
-      data: {
-        ...dataProduct.find((item) => item.productID === this.productID),
-      },
+      data: { ...this.item },
     });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
   onClickDelete() {
-    console.log('Видалення в розробці');
+    this.tableService.deleteData(this.item.productID).subscribe(() => {
+      this.tableService.nGetData();
+    });
   }
 }

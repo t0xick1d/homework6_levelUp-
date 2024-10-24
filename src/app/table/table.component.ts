@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { ELEMENT_DATA } from '../data';
+import { TableService } from './table.service';
+import { Product } from '../interface/table.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalEditAddComponent } from '../component/modal-edit-add/modal-edit-add.component';
 
 @Component({
   selector: 'app-table',
@@ -7,7 +10,7 @@ import { ELEMENT_DATA } from '../data';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent {
-  public dataSource = ELEMENT_DATA;
+  public dataSource: Product[] = [];
   public displayedColumns: string[] = [
     'name',
     'price',
@@ -16,4 +19,22 @@ export class TableComponent {
     'tags',
     'actions',
   ];
+  constructor(public dialog: MatDialog, private tableService: TableService) {}
+
+  ngOnInit(): void {
+    this.tableService.nGetData();
+    this.tableService.productSubject.subscribe((data) => {
+      this.dataSource = data;
+    });
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalEditAddComponent, {
+      width: '500px',
+      data: {},
+    });
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
+  clear(): void {
+    this.tableService.productSubject.next([]);
+  }
 }
