@@ -1,22 +1,48 @@
-<h1 mat-dialog-title>Редагувати продукт </h1>
-<div mat-dialog-content class="containerModel">
- <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Назва</mat-label>
-    <input matInput placeholder="Назва" [(ngModel)]="data.name">
-  </mat-form-field>
-  <mat-form-field class="example-full-width" appearance="fill"> 
-    <mat-label>Ціна</mat-label>
-    <input matInput placeholder="Ціна" [(ngModel)]="data.price">
-  </mat-form-field>
-  <mat-form-field class="example-full-width" appearance="fill"> 
-    <mat-label>Знижка</mat-label>
-    <input matInput placeholder="Знижка"  [(ngModel)]="data.discount">
-  </mat-form-field>
-  <mat-form-field class="example-full-width" appearance="fill"> 
-    <mat-label>SKU</mat-label>
-    <input matInput placeholder="SKU " [(ngModel)]="data.sku">
-  </mat-form-field>
+<h3 mat-dialog-title>Редагувати продукт </h3>
+<mat-tab-group dynamicHeight [(selectedIndex)]="selectedTabIndex">
+  <mat-tab label="Product"> 
+   <div mat-dialog-content class="containerModel">
+   <mat-form-field appearance="fill">
+      <mat-label>Назва</mat-label>
+      <input matInput placeholder="Назва" [(ngModel)]="data.item.name">
+    </mat-form-field>
+    <mat-form-field appearance="fill"> 
+      <mat-label>Ціна</mat-label>
+      <input matInput placeholder="Ціна" [(ngModel)]="data.item.price">
+    </mat-form-field>
+    <mat-form-field appearance="fill"> 
+      <mat-label>Знижка</mat-label>
+      <input matInput placeholder="Знижка"  [(ngModel)]="data.item.discount">
+    </mat-form-field>
+    <mat-form-field appearance="fill"> 
+      <mat-label>SKU</mat-label>
+      <input matInput placeholder="SKU " [(ngModel)]="data.item.sku">
+    </mat-form-field>
+    <div mat-dialog-actions>
+     <button mat-button (click)="onNoClick()">Скасувати</button>
+     <button mat-button [mat-dialog-close]="" (click)="onSave()" cdkFocusInitial>Зберегти</button>
+    </div>
+  <mat-tab label="Category"> 
+   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+   <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+    <button mat-icon-button disabled></button>
+    {{node.name}}
+  </mat-tree-node>
+  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+    <button
+      mat-icon-button
+      matTreeNodeToggle
+      [attr.aria-label]="'Toggle ' + node.name"
+    >
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+    {{node.name}}
+  </mat-tree-node>
+</mat-tree>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Скасувати</button>
-  <button mat-button [mat-dialog-close]="" (click)="onSave()" cdkFocusInitial>Зберегти</button>
-</div>
+     <button mat-button (click)="onNoClick()">Скасувати</button>
+     <button mat-button [mat-dialog-close]="" (click)="onSave()" cdkFocusInitial>Зберегти</button>
+    </div>
+</mat-tab>

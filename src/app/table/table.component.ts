@@ -3,6 +3,7 @@ import { TableService } from './table.service';
 import { Product } from '../interface/table.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalEditAddComponent } from '../component/modal-edit-add/modal-edit-add.component';
+import { ModalEditComponent } from '../component/modal-edit/modal-edit.component';
 
 @Component({
   selector: 'app-table',
@@ -27,9 +28,14 @@ export class TableComponent {
       this.dataSource = data;
     });
   }
+  openEditCtegories(element: Product): void {
+    const dialogRef = this.dialog.open(ModalEditComponent, {
+      data: { categories: 1, item: { ...element } },
+    });
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalEditAddComponent, {
-      width: '500px',
       data: {},
     });
     dialogRef.afterClosed().subscribe((result) => {});

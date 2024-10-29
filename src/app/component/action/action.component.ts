@@ -15,8 +15,12 @@ export class ActionComponent implements OnInit {
   ngOnInit(): void {}
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalEditComponent, {
-      width: '500px',
-      data: { ...this.item },
+      data: {
+        categories: 0,
+        item: {
+          ...this.item,
+        },
+      },
     });
     dialogRef.afterClosed().subscribe((result) => {});
   }

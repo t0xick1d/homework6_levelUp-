@@ -26,9 +26,9 @@
      <app-country [country]="element.countryCode"></app-country> 
     </mat-cell>
   </ng-container>
-  <ng-container matColumnDef="tags">
+  <ng-container matColumnDef="tags" >
     <mat-header-cell *matHeaderCellDef> Tags </mat-header-cell>
-    <mat-cell *matCellDef="let element">
+    <mat-cell *matCellDef="let element" (click)="openEditCtegories(element)" >
      <app-tags [tags]="element.tags"></app-tags>
     </mat-cell>
   </ng-container>

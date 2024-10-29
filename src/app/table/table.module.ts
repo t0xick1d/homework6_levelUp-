@@ -8,6 +8,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTreeModule } from '@angular/material/tree';
 
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -47,6 +49,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatChipsModule,
     MatDialogModule,
     MatInputModule,
+    MatTabsModule,
+    MatTreeModule,
   ],
   providers: [],
   exports: [TableComponent],
