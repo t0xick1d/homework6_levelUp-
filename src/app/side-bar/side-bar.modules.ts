@@ -6,10 +6,29 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { SideBarComponent } from './side-bar.component';
 import { TableModule } from '../table/table.module';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { ModalLoginComponent } from '../component/modal-login/modal-login.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ModalRegisterComponent } from '../component/modal-register/modal-register.component';
 
 @NgModule({
-  declarations: [SideBarComponent],
-  imports: [MatSidenavModule, TableModule, MatToolbarModule, MatIconModule],
+  declarations: [SideBarComponent, ModalLoginComponent, ModalRegisterComponent],
+  imports: [
+    MatSidenavModule,
+    TableModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatInputModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   exports: [SideBarComponent],
 })

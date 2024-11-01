@@ -30,7 +30,6 @@ export class ModalEditComponent {
     public dialogRef: MatDialogRef<ActionComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DataProduct
   ) {
-    console.log(this.data);
     this.selectedTabIndex = this.data.categories;
     this.dataCategories = this.data.item.tags.map((e) => {
       return {
