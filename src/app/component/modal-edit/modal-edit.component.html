@@ -1,27 +1,29 @@
 <h3 mat-dialog-title>Редагувати продукт </h3>
 <mat-tab-group dynamicHeight [(selectedIndex)]="selectedTabIndex">
   <mat-tab label="Product"> 
-   <div mat-dialog-content class="containerModel">
+   <div mat-dialog-content >
+    <form [formGroup]="formEdit"  class="containerModel"  >
    <mat-form-field appearance="fill">
       <mat-label>Назва</mat-label>
-      <input matInput placeholder="Назва" [(ngModel)]="data.item.name">
+      <input matInput placeholder="Назва" formControlName="name">
     </mat-form-field>
     <mat-form-field appearance="fill"> 
       <mat-label>Ціна</mat-label>
-      <input matInput placeholder="Ціна" [(ngModel)]="data.item.price">
+      <input matInput placeholder="Ціна" formControlName="price" >
     </mat-form-field>
     <mat-form-field appearance="fill"> 
       <mat-label>Знижка</mat-label>
-      <input matInput placeholder="Знижка"  [(ngModel)]="data.item.discount">
+      <input matInput placeholder="Знижка" formControlName="discount">
     </mat-form-field>
     <mat-form-field appearance="fill"> 
       <mat-label>SKU</mat-label>
-      <input matInput placeholder="SKU " [(ngModel)]="data.item.sku">
+      <input matInput placeholder="SKU" formControlName="sku">
     </mat-form-field>
     <div mat-dialog-actions>
      <button mat-button (click)="onNoClick()">Скасувати</button>
      <button mat-button [mat-dialog-close]="" (click)="onSave()" cdkFocusInitial>Зберегти</button>
     </div>
+    </form>
   <mat-tab label="Category"> 
    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>

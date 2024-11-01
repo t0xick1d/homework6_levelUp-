@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTreeModule } from '@angular/material/tree';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TableComponent } from './table.component';
 import { NameComponent } from '../component/name/name.component';
@@ -51,6 +51,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatInputModule,
     MatTabsModule,
     MatTreeModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   exports: [TableComponent],

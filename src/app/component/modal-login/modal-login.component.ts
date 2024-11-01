@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 interface FormLogin {
   login: FormControl<string | null>;
@@ -21,8 +16,11 @@ export class ModalLoginComponent implements OnInit {
   hide = true;
   public color = 'primary';
   public formLogin = new FormGroup<FormLogin>({
-    login: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    login: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
     check: new FormControl(false, {
       nonNullable: true,
       validators: [Validators.required],
@@ -31,8 +29,6 @@ export class ModalLoginComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.formLogin.valueChanges.subscribe((v) => {
-      console.log(v);
-    });
+    this.formLogin.valueChanges.subscribe((v) => {});
   }
 }

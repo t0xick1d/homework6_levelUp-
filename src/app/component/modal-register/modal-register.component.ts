@@ -30,14 +30,11 @@ export class ModalRegisterComponent implements OnInit {
     const confirmPassword = control.parent?.get('confirmPassword');
     return password?.value == confirmPassword?.value ? null : { notSame: true };
   }
-  public formRegister: FormGroup;
+  public formRegister: FormGroup<FormRegister>;
   constructor(private fb: FormBuilder) {
     this.formRegister = this.fb.group({
       name: new FormControl('', Validators.required),
-      email: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
-      ]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', (c: AbstractControl) =>
         Validators.required(c)
       ),
@@ -49,8 +46,6 @@ export class ModalRegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.formRegister.valueChanges.subscribe((v) => {
-      console.log(v);
-    });
+    this.formRegister.valueChanges.subscribe((v) => {});
   }
 }
