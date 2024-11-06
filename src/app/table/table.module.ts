@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NgComponentOutlet } from '@angular/common';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,6 +25,7 @@ import { ModalEditComponent } from '../component/modal-edit/modal-edit.component
 import { ModalEditAddComponent } from '../component/modal-edit-add/modal-edit-add.component';
 
 import { MatDividerModule } from '@angular/material/divider';
+import { CapitalizeFirstPipe } from '../capitalize-first.pipe';
 
 @NgModule({
   declarations: [
@@ -36,8 +38,10 @@ import { MatDividerModule } from '@angular/material/divider';
     ActionComponent,
     ModalEditComponent,
     ModalEditAddComponent,
+    CapitalizeFirstPipe,
   ],
   imports: [
+    NgComponentOutlet,
     CommonModule,
     FormsModule,
     MatTableModule,

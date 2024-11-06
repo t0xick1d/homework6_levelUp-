@@ -41,3 +41,13 @@
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+<!-- <mat-table [dataSource]='dataSource' class="mat-elevation-z8 table">
+ <ng-container *ngFor="let item of configure; index as i">
+   <mat-header-cell *matHeaderCellDef> {{item.titleColums| capitalizeFirst }} </mat-header-cell>
+    <mat-cell *matCellDef="let element"> 
+     <ng-container *ngComponentOutlet="item.component"></ng-container>
+   </mat-cell>
+ </ng-container> 
+ <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table> -->

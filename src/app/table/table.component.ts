@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TableService } from './table.service';
-import { Product } from '../interface/table.interface';
+import { ConfigTable, Product } from '../interface/table.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalEditAddComponent } from '../component/modal-edit-add/modal-edit-add.component';
 import { ModalEditComponent } from '../component/modal-edit/modal-edit.component';
@@ -10,19 +10,14 @@ import { ModalEditComponent } from '../component/modal-edit/modal-edit.component
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
+  @Input() configure: ConfigTable[] = [];
   public dataSource: Product[] = [];
-  public displayedColumns: string[] = [
-    'name',
-    'price',
-    'sku',
-    'country',
-    'tags',
-    'actions',
-  ];
+  public displayedColumns: string[] = [];
   constructor(public dialog: MatDialog, private tableService: TableService) {}
 
   ngOnInit(): void {
+    this.displayedColumns = this.configure.map((e) => e.titleColums);
     this.tableService.nGetData();
     this.tableService.productSubject.subscribe((data) => {
       this.dataSource = data;

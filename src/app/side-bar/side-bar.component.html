@@ -15,5 +15,5 @@
    <button mat-flat-button color="primary"  class="buttonMenu" type="button" (click)="openLoginModal()">Log In</button>
   <button mat-stroked-button color="primary" (click)="openRegisterModal()">Register</button>
 </mat-toolbar>
-    <app-table class="table"></app-table>
+    <app-table class="table" [configure]="configure"></app-table>
 </mat-drawer-container>

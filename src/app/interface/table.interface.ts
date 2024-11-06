@@ -1,3 +1,6 @@
+import { ComponentType } from '@angular/cdk/portal';
+import { Component, ComponentRef, Type } from '@angular/core';
+
 export interface Product {
   productID: number;
   name: string;
@@ -10,6 +13,10 @@ export interface Product {
   tags: string[];
   image: string;
   token: string;
+}
+export interface ConfigTable {
+  titleColums: string;
+  component: ComponentType<unknown>;
 }
 export interface newProduct {
   name: string;
