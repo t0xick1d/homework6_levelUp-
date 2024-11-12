@@ -2,17 +2,11 @@ import { ComponentType } from '@angular/cdk/portal';
 import { Component, ComponentRef, Type } from '@angular/core';
 
 export interface Product {
-  productID: number;
+  id: number;
+  category: string;
+  inStock: boolean;
   name: string;
   price: number;
-  discount: number;
-  sku: string;
-  isActive: boolean;
-  countryCode: string;
-  itemUrl: string;
-  tags: string[];
-  image: string;
-  token: string;
 }
 export interface ConfigTable {
   titleColums: string;
@@ -31,4 +25,15 @@ export interface newProduct {
 
 export interface DialogData {
   id: string;
+}
+export interface FilterOption {
+  name: string;
+  value: string;
+}
+
+export interface FilterConfig {
+  label: string;
+  name: string;
+  type: 'checkbox' | 'select' | 'text';
+  options?: FilterOption[];
 }

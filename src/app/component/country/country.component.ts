@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./country.component.scss'],
 })
 export class CountryComponent implements OnInit {
-  @Input() country!: string;
+  @Input() inStock!: boolean;
   constructor() {}
 
   ngOnInit(): void {}

@@ -16,32 +16,7 @@ import { ConfigTable } from '../interface/table.interface';
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent implements OnInit {
-  public configure: ConfigTable[] = [
-    {
-      titleColums: 'name',
-      component: NameComponent,
-    },
-    {
-      titleColums: 'price',
-      component: PriceComponent,
-    },
-    {
-      titleColums: 'sku',
-      component: SkuComponent,
-    },
-    {
-      titleColums: 'country',
-      component: CountryComponent,
-    },
-    {
-      titleColums: 'tags',
-      component: TagsComponent,
-    },
-    {
-      titleColums: 'actions',
-      component: ActionComponent,
-    },
-  ];
+  
   constructor(public dialog: MatDialog) {}
   ngOnInit(): void {}
   showFiller = false;

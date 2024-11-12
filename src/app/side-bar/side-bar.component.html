@@ -15,5 +15,11 @@
    <button mat-flat-button color="primary"  class="buttonMenu" type="button" (click)="openLoginModal()">Log In</button>
   <button mat-stroked-button color="primary" (click)="openRegisterModal()">Register</button>
 </mat-toolbar>
-    <app-table class="table" [configure]="configure"></app-table>
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+      <mat-button-toggle value="storeA" routerLink="/storeA">storeA</mat-button-toggle>
+      <mat-button-toggle value="storeB" routerLink="/storeB">storeB</mat-button-toggle>
+      <mat-button-toggle value="storeC" routerLink="/storeC">storeC</mat-button-toggle>
+    </mat-button-toggle-group> 
+    <router-outlet class="table"></router-outlet>
+    <!-- <app-table class="table" [configure]="configure"></app-table> -->
 </mat-drawer-container>

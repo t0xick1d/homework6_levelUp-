@@ -3,28 +3,53 @@ import { BehaviorSubject, catchError, Observable } from 'rxjs';
 import { Product, newProduct } from '../interface/table.interface';
 import { AbstractService } from '../shared/rep.service';
 import { HttpConnector } from '../shared/httpConector';
+import { Router } from '@angular/router';
+import { FilterConfig } from '../interface/table.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TableService extends AbstractService {
   public productSubject = new BehaviorSubject<Product[]>([]);
+  public filterSubject = new BehaviorSubject<FilterConfig[]>([]);
 
-  constructor(private http: HttpConnector) {
+  constructor(private http: HttpConnector, private router: Router) {
     super();
   }
 
   public getData(): Observable<any> {
-    return this.http.request({ method: 'GET', urlPath: 'all-products' }).pipe(
-      catchError((error: any) => {
-        return this.handelError(error);
+    return this.http
+      .request({
+        method: 'GET',
+        urlPath: `api/${this.router.url.slice(1)}/products`,
       })
-    );
+      .pipe(
+        catchError((error: any) => {
+          return this.handelError(error);
+        })
+      );
+  }
+  public getDataFilter(): Observable<any> {
+    return this.http
+      .request({
+        method: 'GET',
+        urlPath: `api/${this.router.url.slice(1)}/filters`,
+      })
+      .pipe(
+        catchError((error: any) => {
+          return this.handelError(error);
+        })
+      );
   }
 
   public nGetData(): void {
     this.getData().subscribe((data) => {
       this.productSubject.next(data);
+    });
+  }
+  public nGetDataDilter(): void {
+    this.getDataFilter().subscribe((data) => {
+      this.filterSubject.next(data);
     });
   }
   public postData(body: newProduct): Observable<any> {
@@ -38,7 +63,7 @@ export class TableService extends AbstractService {
   }
   public putData(body: Product): Observable<any> {
     return this.http
-      .request({ method: 'PUT', urlPath: `products/${body.productID}`, body })
+      .request({ method: 'PUT', urlPath: `products/${body.id}`, body })
       .pipe(
         catchError((error: any) => {
           return this.handelError(error);

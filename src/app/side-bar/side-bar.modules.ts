@@ -14,6 +14,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalRegisterComponent } from '../component/modal-register/modal-register.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @NgModule({
   declarations: [SideBarComponent, ModalLoginComponent, ModalRegisterComponent],
@@ -28,6 +30,9 @@ import { ModalRegisterComponent } from '../component/modal-register/modal-regist
     MatCheckboxModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatButtonToggleModule,
+    RouterLink,
+    RouterOutlet,
   ],
   providers: [],
   exports: [SideBarComponent],

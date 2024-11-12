@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./sku.component.scss'],
 })
 export class SkuComponent implements OnInit {
-  @Input() sku!: string;
+  @Input() id!: number;
   constructor() {}
 
   ngOnInit(): void {}

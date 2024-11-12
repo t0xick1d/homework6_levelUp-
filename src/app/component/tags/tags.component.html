@@ -1,23 +1,23 @@
  <mat-form-field>
   <mat-chip-list #chipList>
-   <div *ngIf="tags.length<=2" >
-    <mat-chip *ngFor="let item of tags">
-      {{item}}
+   <div *ngIf="tagsArray.length<=2" >
+    <mat-chip *ngFor="let item of tagsArray">
+      {{category}}
       <button matChipRemove>
         <mat-icon>cancel</mat-icon>
       </button>
     </mat-chip>
    </div>
-    <div *ngIf="tags.length>2" >
+    <div *ngIf="tagsArray.length>2" >
     <mat-chip>
-      {{tags[0]}}>
+      {{tagsArray[0]}}>
       <button matChipRemove>
         <mat-icon>cancel</mat-icon>
       </button>
     </mat-chip> 
     ...
     <mat-chip>
-      <{{tags[tags.length-1]}}
+      <{{tagsArray[tagsArray.length-1]}}
       <button matChipRemove>
         <mat-icon>cancel</mat-icon>
       </button>

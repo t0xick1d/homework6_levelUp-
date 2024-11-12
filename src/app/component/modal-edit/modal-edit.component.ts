@@ -27,11 +27,11 @@ interface DataProduct {
 })
 export class ModalEditComponent {
   public activeProduct!: Product;
-  public dataCategories!: FoodNode[];
+  public dataCategories!: string;
   public selectedTabIndex!: number;
   public formEdit: FormGroup;
   treeControl = new NestedTreeControl<FoodNode>((node) => node.children);
-  dataSource = new MatTreeNestedDataSource<FoodNode>();
+  dataSource = new MatTreeNestedDataSource();
   constructor(
     private fb: FormBuilder,
     private tableService: TableService,
@@ -42,17 +42,9 @@ export class ModalEditComponent {
     this.formEdit = this.fb.group({
       name: [data.item.name, [Validators.required]],
       price: [data.item.price, [Validators.required, Validators.min(1)]],
-      discount: [data.item.discount, [Validators.required, Validators.min(1)]],
-      sku: [data.item.sku, [Validators.required, Validators.minLength(6)]],
     });
     this.selectedTabIndex = this.data.categories;
-    this.dataCategories = this.data.item.tags.map((e) => {
-      return {
-        name: e,
-        children: [],
-      };
-    });
-    this.dataSource.data = this.dataCategories;
+    this.dataCategories = this.data.item.category;
   }
   ngOnInit(): void {
     this.formEdit.valueChanges.subscribe((v) => {

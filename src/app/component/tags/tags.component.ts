@@ -6,8 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./tags.component.scss'],
 })
 export class TagsComponent implements OnInit {
-  @Input() tags!: string[];
-  constructor() {}
+  @Input() category!: string;
+  public tagsArray: string[] = [];
+  constructor() {
+    this.tagsArray = [this.category];
+  }
 
   ngOnInit(): void {}
 }

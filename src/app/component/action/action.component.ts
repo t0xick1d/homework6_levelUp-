@@ -25,7 +25,7 @@ export class ActionComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {});
   }
   onClickDelete() {
-    this.tableService.deleteData(this.item.productID).subscribe(() => {
+    this.tableService.deleteData(this.item.id).subscribe(() => {
       this.tableService.nGetData();
     });
   }

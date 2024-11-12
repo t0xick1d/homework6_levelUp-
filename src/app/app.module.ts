@@ -11,19 +11,20 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { TableModule } from './table/table.module';
 import { SideBarModule } from './side-bar/side-bar.modules';
-
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     TableModule,
-    SideBarModule,
+
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
